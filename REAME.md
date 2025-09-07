@@ -1,12 +1,12 @@
-## О проекте
+# О проекте
 Проект auth_drf — учебная реализация собственной системы аутентификации и авторизации на Django + DRF.
 
-# Подготовка проекта auth_drf к запуску:
+## Подготовка проекта auth_drf к запуску:
 1. Клонируйте репозиторий и перейдите в него в командной строке:
 ```
-git clone https://github.com/mShono/foodgram
-```
+git clone https://github.com/mShono/effective_mobile
 cd auth_drf
+```
 2. Cоздайте и активируйте виртуальное окружение:
 ```
 python3 -m venv venv
@@ -31,8 +31,8 @@ python3 manage.py runserver
 python manage.py fill_database
 ```
 
-# Cтруктура управления ограничениями доступа
-# Основные сущности (модели / таблицы):
+## Cтруктура управления ограничениями доступа
+## Основные сущности (модели / таблицы):
 
 1. Role - таблица ролей: id, name (уникально), description.
 Примеры: admin, editor, user.
@@ -54,7 +54,7 @@ can_update (bool) — разрешено обновлять
 can_delete (bool) — разрешено удалять
 Уникальность: (role_id, resource_type_id).
 
-# В момент наполнения базы у ролей появляются следующие разрешения:
+## В момент наполнения базы у ролей появляются следующие разрешения:
 admin:
     "owner_only" - False,
     "can_read" - True,
@@ -76,13 +76,13 @@ user:
     "can_update" - True,
     "can_delete" - False
 
-# Тесты:
+## Тесты:
 Используется pytest + pytest-django:
 ```
 pytest
 ```
 
-# Реализованы следующие эндпоинты:
+## Реализованы следующие эндпоинты:
 
 Auth/user endpoints
 
@@ -108,7 +108,7 @@ GET /api/mock/documents/ — список документов
 POST /api/mock/documents/ — создание документа
 GET/PUT/DELETE /api/mock/documents/{id}/ — действия с документом
 
-# Примеры curl:
+## Примеры curl:
 Регистрация:
 ```
 curl -X POST http://localhost:8000/api/auth/register/ \
